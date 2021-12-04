@@ -1,0 +1,11 @@
+.ipynb_checkpoints/
+data/*.txt
+ios_log/
+android_log/
+__pycache__/
+errors.log
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
