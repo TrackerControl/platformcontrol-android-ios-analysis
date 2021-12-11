@@ -15,7 +15,7 @@ Both iOS and Android analysis need a text file, with each line pointing to an ap
 - `./data/android_files.txt` for Android
 - `./data/ios_files.txt` for iOS
 
-The network traffic is monitored using `mitmproxy` (**version `6.0.2`**), which must be installed on your system and on your phone (i.e. set-up proxy and install custom root certificates). On Android 7 or higher this needs root access.
+The network traffic is monitored using `mitmproxy` (version `6.0.2` -- higher versions are not compatible), which must be installed on your system and on your phone (i.e. set-up proxy and install custom root certificates). On Android 7 or higher this needs root access.
 
 ## iOS Setup
 
