@@ -35,7 +35,7 @@ if [ ! -f ./ios_log/classes/$appId-classes.txt ]; then
         # start logging network traffic
         echo "-----logging traffic $appId"
         echo "-----logging traffic $appId" >> $log
-        mitmdump -p 8888 -w ./ios_log/mitm/$appId.mitm -s ./helpers/har_dump.py --set hardump=./ios_log/zhar/$appId.zhar &
+        mitmdump -p 8888 -w ./ios_log/mitm/$appId.mitm -s ./helpers/har_dump.py --set hardump=./ios_log/zhar/$appId.zhar --ssl_insecure &
         PID=$!
         sleep 2
 
