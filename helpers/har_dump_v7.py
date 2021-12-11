@@ -124,7 +124,7 @@ def response(flow: mitmproxy.http.HTTPFlow):
         "time": full_time,
         "request": {
             "method": flow.request.method,
-            "url": flow.request.url,
+            "url": "url": flow.request.scheme + "://" + flow.request.pretty_host + flow.request.path, # flow.request.url,
             "httpVersion": flow.request.http_version,
             "cookies": format_request_cookies(flow.request.cookies.fields),
             "headers": name_value(flow.request.headers),
