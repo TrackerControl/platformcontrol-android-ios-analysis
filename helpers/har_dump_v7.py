@@ -1,6 +1,13 @@
 """
 This inline script can be used to dump flows as HAR files.
 
+This file forked from the original har_dump.py file from the mitmproxy project (MIT License):
+https://github.com/mitmproxy/mitmproxy/blob/main/examples/contrib/har_dump.py
+
+Additional changes:
+- Better support of analysing Android traffic
+- Logging of contacted domains (IP-based) and TLS SNIs in output file
+
 example cmdline invocation:
 mitmdump -s ./har_dump.py --set hardump=./dump.har
 
@@ -32,12 +39,14 @@ HAR: typing.Dict = {}
 # using 'connect' time for entries that use an existing connection.
 SERVERS_SEEN: typing.Set[connection.Server] = set()
 
+
 def tls_clienthello(data):
     HAR["log"]["tls_snis"].append({
         "address": data.context.client.sni,
         "port": data.context.server.address[1],
         "time_start": data.context.client.timestamp_start
     })
+
 
 def server_connect(data):
     HAR["log"]["domains"].append({
@@ -112,11 +121,14 @@ def response(flow: mitmproxy.http.HTTPFlow):
     # Timings set to -1 will be ignored as per spec.
     full_time = sum(v for v in timings.values() if v > -1)
 
-    started_date_time = datetime.fromtimestamp(flow.request.timestamp_start, timezone.utc).isoformat()
+    started_date_time = datetime.fromtimestamp(
+        flow.request.timestamp_start, timezone.utc).isoformat()
 
     # Response body size and encoding
-    response_body_size = len(flow.response.raw_content) if flow.response.raw_content else 0
-    response_body_decoded_size = len(flow.response.content) if flow.response.content else 0
+    response_body_size = len(
+        flow.response.raw_content) if flow.response.raw_content else 0
+    response_body_decoded_size = len(
+        flow.response.content) if flow.response.content else 0
     response_body_compression = response_body_decoded_size - response_body_size
 
     entry = {
@@ -153,10 +165,12 @@ def response(flow: mitmproxy.http.HTTPFlow):
 
     # Store binary data as base64
     if strutils.is_mostly_bin(flow.response.content):
-        entry["response"]["content"]["text"] = base64.b64encode(flow.response.content).decode()
+        entry["response"]["content"]["text"] = base64.b64encode(
+            flow.response.content).decode()
         entry["response"]["content"]["encoding"] = "base64"
     else:
-        entry["response"]["content"]["text"] = flow.response.get_text(strict=False)
+        entry["response"]["content"]["text"] = flow.response.get_text(
+            strict=False)
 
     if flow.request.method in ["POST", "PUT", "PATCH"]:
         params = [
@@ -192,7 +206,8 @@ def done():
             with open(os.path.expanduser(ctx.options.hardump), "wb") as f:
                 f.write(raw)
 
-            mitmproxy.ctx.log("HAR dump finished (wrote %s bytes to file)" % len(json_dump))
+            mitmproxy.ctx.log(
+                "HAR dump finished (wrote %s bytes to file)" % len(json_dump))
 
 
 def format_cookies(cookie_list):
@@ -216,7 +231,8 @@ def format_cookies(cookie_list):
         # Expiration time needs to be formatted
         expire_ts = cookies.get_expiration_ts(attrs)
         if expire_ts is not None:
-            cookie_har["expires"] = datetime.fromtimestamp(expire_ts, timezone.utc).isoformat()
+            cookie_har["expires"] = datetime.fromtimestamp(
+                expire_ts, timezone.utc).isoformat()
 
         rv.append(cookie_har)
 
@@ -236,4 +252,3 @@ def name_value(obj):
         Convert (key, value) pairs to HAR format.
     """
     return [{"name": k, "value": v} for k, v in obj.items()]
-
