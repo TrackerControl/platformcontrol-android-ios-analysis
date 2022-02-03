@@ -23,6 +23,8 @@ For our tests, we used version `6.0.2` of `mitmproxy`. Higher versions are not s
 
 For iOS, install `frida` and `ideviceinstaller` on your computer. You also need to [jailbreak](https://docs.google.com/spreadsheets/d/11DABHIIqwYQKj1L83AK9ywk_hYMjEkcaxpIg6phbTf0/edit#gid=1014970938) your iOS device. Then, install [frida](https://frida.re/docs/ios/#with-jailbreak) and [ssl-kill-switch2](https://github.com/nabla-c0d3/ssl-kill-switch2) on your iOS device. Run `pkill itunesstored` on a bash console on your iOS before starting the analysis. Then, you can start the analysis using `processIpas.sh`.
 
+If you're trying to install somewhat older `*.ipa` files, you might run into problems with the signature having become outdated. In that case, you can use [AppSync](https://github.com/akemin-dayo/AppSync).
+
 ## Android Setup
 
 You need to install `adb`. Additionally, you can try to circumvent certificate pinning using [JustTrustMe](https://github.com/kasnder/JustTrustMe) and the Xposed Framework (root required). Lastly, you can start the analysis using `processApks.sh`.
