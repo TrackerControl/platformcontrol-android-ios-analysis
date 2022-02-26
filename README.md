@@ -15,6 +15,8 @@ Both iOS and Android analysis need a text file, with each line pointing to an ap
 - `./data/android_files.txt` for Android
 - `./data/ios_files.txt` for iOS
 
+You need to create such files manually before use and also provide app files to analyse.
+
 The network traffic is monitored using `mitmproxy`, which must be installed on your system and on your phone (i.e. set-up proxy and install custom root certificates). On Android 7 or higher this needs root access.
 
 For our tests, we used version `6.0.2` of `mitmproxy`. Higher versions are not supported. However, we provide the script `helpers/har_dump_v7.py` that should have compatibility with the latest version of the tool. It has, however, not been rigorously tested.
