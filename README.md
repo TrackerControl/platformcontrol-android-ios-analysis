@@ -10,7 +10,7 @@ This repo provides analysis scripts to automate the tracker analysis of iOS and 
 
 ## Preparation
 
-Both iOS and Android analysis need a text file, with each line pointing to an app file (either `*.apk` or `*.ipa` files):
+Both iOS and Android analysis need a text file, with each line pointing to an app file (either `[appId].apk` or `[bundleId].ipa` files):
 
 - `./data/android_files.txt` for Android
 - `./data/ios_files.txt` for iOS
