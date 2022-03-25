@@ -18,7 +18,7 @@ killwait ()
 if [ ! -f ./android_log/$appId.chls ]; then
     log=./android_log.txt
 
-    mitmdump -p 8889 --mode socks5 --showhost -w ./android_log/mitm/$appId.mitm -s ./helpers/har_dump.py --set hardump=./android_log/zhar/$appId.zhar --ssl_insecure &
+    mitmdump -p 8889 --mode socks5 --showhost -w ./android_log/mitm/$appId.mitm -s ./helpers/har_dump.py --set hardump=./android_log/zhar/$appId.zhar --ssl-insecure &
     PID=$!
     sleep 2
 
