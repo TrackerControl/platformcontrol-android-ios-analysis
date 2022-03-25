@@ -42,6 +42,12 @@ For static analysis, use the [Exodus standalone script](https://github.com/Exodu
 
 Some apps manage to circumvent the proxy settings if entered in the system settings. For this reason, you might want to use an dedicated app that makes sure that all traffic is routed through the proxy. For instance, you could use a SOCKS proxy using [TrackerControl Slim](https://play.google.com/store/apps/details?id=net.kollnig.missioncontrol.play) (available on the Google Play Store---make sure you enable the monitoring of System Apps).
 
+## Data Analysis
+
+After running your app analysis, you can use the provided Jupyter notebook files to evaluate the gathered data.
+
+You should run `1_detect_ios_trackers.ipynb` before `2_main_analysis.ipynb`.
+
 ## Credits
 
 - https://github.com/mitmproxy/mitmproxy
