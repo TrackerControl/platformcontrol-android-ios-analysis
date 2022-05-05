@@ -34,6 +34,8 @@ For iOS, install `frida` and `ideviceinstaller` on your computer. You also need 
 
 If you're trying to install somewhat older `*.ipa` files, you might run into problems with the signature having become outdated. In that case, you can use [AppSync](https://github.com/akemin-dayo/AppSync).
 
+Further helpful tools are [screendump](https://www.reddit.com/r/jailbreak/comments/n6691l/free_release_screendumpfix14_make_screendump/) and sqlite3.
+
 ## Android Setup
 
 You need to install `adb`. Additionally, you can try to circumvent certificate pinning using [JustTrustMe](https://github.com/kasnder/JustTrustMe) and the Xposed Framework (root required). Lastly, you can start the analysis using `processApks.sh`.
