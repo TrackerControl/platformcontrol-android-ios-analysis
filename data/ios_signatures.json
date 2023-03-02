@@ -562,5 +562,77 @@
     "name":  "Pangle",
     "comment": "Bytedance Ads",
     "id": 95
+  },
+  {
+    "regex": "BMKMapView",
+    "name": "Baidu Map",
+    "comment": "",
+    "id": 96
+  },
+  {
+    "regex": "BaiduMobStat",
+    "name": "Baidu Mobile Stat",
+    "comment": "",
+    "id": 97
+  },
+  {
+    "regex": "BaiduMobAd",
+    "name": "Baidu Mobile Ads",
+    "comment": "",
+    "id": 98
+  },
+  {
+    "regex": "MobClick",
+    "name": "Umeng Analytics",
+    "comment": "",
+    "id": 99
+  },
+  {
+    "regex": "UMSocial",
+    "name": "Umeng Social",
+    "comment": "",
+    "id": 100
+  },
+  {
+    "regex": "^MOBF",
+    "name": "Mob.com",
+    "comment": "",
+    "id": 101
+  },
+  {
+    "regex": "^Alicloud",
+    "name": "Alibaba Cloud Utils",
+    "comment": "",
+    "id": 102
+  },
+  {
+    "regex": "CCPSysMessage|CloudPushSDK",
+    "name": "Alibaba Cloud Push",
+    "comment": "Details: https://help.aliyun.com/document_detail/30072.html",
+    "id": 103
+  },
+  {
+    "regex": "AliCrash|AlicloudCrash|TBCrashSelfMonitorControler",
+    "name": "Alibaba Crash Reporting",
+    "comment": "",
+    "id": 104
+  },
+  {
+    "regex": "^AMapServices",
+    "name": "Alibaba AutoNavi",
+    "comment": "Also known as AMap. Details: https://lbs.amap.com/api/ios-sdk/download",
+    "id": 105
+  },
+  {
+    "regex": "^UTAnalytics|^UTTracker|^AppMonitor",
+    "name": "Alibaba Analytics",
+    "comment": "Isn't really a coherent SDK, but class name points to analytics.",
+    "id": 106
+  },
+  {
+    "regex": "^WPKSetup",
+    "name": "Yueying",
+    "comment": "Crash reporting software. Belongs to UC, a subsidiary of Alibaba. More here: https://yueying-docs.effirst.com/ios-join.html",
+    "id": 107
   }
 ]
