@@ -2,7 +2,7 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC_BY--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
-*This project is part of PlatformControl: <https://github.com/OxfordHCC/PlatformControl>*
+*This project is part of PlatformControl: <https://github.com/TrackerControl/PlatformControl>*
 
 This repo provides analysis scripts to automate the tracker analysis of iOS and Android apps, with both dynamic and static analysis.
 
@@ -38,7 +38,7 @@ Further helpful tools are [screendump](https://www.reddit.com/r/jailbreak/commen
 
 ## Android Setup
 
-You need to install `adb`. Additionally, you can try to circumvent certificate pinning using [JustTrustMe](https://github.com/kasnder/JustTrustMe) and the Xposed Framework (root required). Lastly, you can start the analysis using `processApks.sh`.
+You need to install `adb`. Additionally, you can try to circumvent certificate pinning using [JustTrustMe](https://github.com/TrackerControl/JustTrustMe) and the Xposed Framework (root required). Lastly, you can start the analysis using `processApks.sh`.
 
 For static analysis, use the [Exodus standalone script](https://github.com/Exodus-Privacy/exodus-standalone) on the apks: `python exodus_analyze.py -j app.apk`
 
@@ -56,7 +56,7 @@ You should run `1_detect_ios_trackers.ipynb` before `2_main_analysis.ipynb`.
 - https://github.com/noobpk/frida-ios-hook
 - https://github.com/Exodus-Privacy/exodus-standalone
 - https://github.com/Fuzion24/JustTrustMe
-- https://github.com/kasnder/JustTrustMe
+- https://github.com/TrackerControl/JustTrustMe
 - https://play.google.com/store/apps/details?id=net.kollnig.missioncontrol.play
 - https://github.com/nabla-c0d3/ssl-kill-switch2
 
