@@ -9,10 +9,10 @@ Additional changes:
 - Logging of contacted domains (IP-based) and TLS SNIs in output file
 
 example cmdline invocation:
-mitmdump -s ./har_dump.py --set hardump=./dump.har
+mitmdump -s ./har_dump.py --set hardumpath=./dump.har
 
 filename endwith '.zhar' will be compressed:
-mitmdump -s ./har_dump.py --set hardump=./dump.zhar
+mitmdump -s ./har_dump.py --set hardumpath=./dump.zhar
 """
 
 
@@ -58,7 +58,7 @@ def server_connect(data):
 
 def load(l):
     l.add_option(
-        "hardump", str, "", "HAR dump path.",
+        "hardumpath", str, "", "HAR dump path.",
     )
 
 
@@ -79,6 +79,7 @@ def configure(updated):
 
 
 def response(flow: mitmproxy.http.HTTPFlow):
+    print("hi: response")
     """
        Called when a server response has been received.
     """
@@ -190,20 +191,21 @@ def response(flow: mitmproxy.http.HTTPFlow):
 
 
 def done():
+    print("hi: response")
     """
         Called once on script shutdown, after any other events.
     """
-    if ctx.options.hardump:
+    if ctx.options.hardumpath:
         json_dump: str = json.dumps(HAR)
 
-        if ctx.options.hardump == '-':
+        if ctx.options.hardumpath == '-':
             mitmproxy.ctx.log(json_dump)
         else:
             raw: bytes = json_dump.encode()
-            if ctx.options.hardump.endswith('.zhar'):
+            if ctx.options.hardumpath.endswith('.zhar'):
                 raw = zlib.compress(raw, 9)
 
-            with open(os.path.expanduser(ctx.options.hardump), "wb") as f:
+            with open(os.path.expanduser(ctx.options.hardumpath), "wb") as f:
                 f.write(raw)
 
             mitmproxy.ctx.log(
