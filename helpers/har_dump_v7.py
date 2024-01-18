@@ -79,7 +79,6 @@ def configure(updated):
 
 
 def response(flow: mitmproxy.http.HTTPFlow):
-    print("hi: response")
     """
        Called when a server response has been received.
     """
@@ -191,7 +190,6 @@ def response(flow: mitmproxy.http.HTTPFlow):
 
 
 def done():
-    print("hi: response")
     """
         Called once on script shutdown, after any other events.
     """
